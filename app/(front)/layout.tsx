@@ -4,12 +4,14 @@ import MegaMenu from "../components/Frontend/MegaMenu";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-blue-600">
+    <div className="bg-white">
       <Navbar />
-      <div className="max-w-5xl mx-auto py-3">
-        <MegaMenu />
+      <div className="bg-white left-0 right-0  py-4 fixed top-20 w-full z-50  border-t border-gray-400/30 ">
+        <div className="container mx-auto">
+          <MegaMenu />
+        </div>
       </div>
-      {children}
+      <div className=" mt-[160px]">{children}</div>
     </div>
   );
 }

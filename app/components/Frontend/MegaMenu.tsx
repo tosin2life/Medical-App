@@ -10,7 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+} from "@/app/components/ui/navigation-menu";
 
 const megaMenu = [
   {
@@ -108,7 +108,7 @@ const megaMenu = [
 ];
 export default function MegaMenu() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="bg-white">
       <NavigationMenuList className=" space-x-20">
         {megaMenu.map((item, i) => (
           <NavigationMenuItem key={i}>

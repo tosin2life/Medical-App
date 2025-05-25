@@ -1,10 +1,16 @@
 import React from "react";
 import Hero from "../components/Frontend/Hero";
+import Brands from "../components/Frontend/Brands";
+import TabbedSection from "../components/Frontend/TabbedSection";
+import DoctorsList from "../components/DoctorsList";
 
 export default function Home() {
   return (
-    <section className="bg-blue-950">
+    <section className="">
       <Hero />
+      <Brands />
+      <TabbedSection />
+      <DoctorsList />
     </section>
   );
 }

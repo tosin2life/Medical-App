@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -123,5 +125,91 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Carousel styles */
+.embla {
+  overflow: hidden;
+  position: relative;
+}
+
+.embla__container {
+  display: flex;
+  gap: 1.5rem;
+  height: 400px; /* Match the height of your cards */
+}
+
+.embla__slide {
+  flex: 0 0 300px; /* Match the width of your cards */
+  min-width: 300px;
+  height: 100%;
+}
+
+/* Make sure images maintain aspect ratio */
+.embla__slide img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style carousel navigation buttons */
+.embla__button {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 9999px;
+  padding: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.embla__button:hover:not(:disabled) {
+  background: rgb(249, 250, 251);
+}
+
+.embla__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.embla {
+  position: relative;
+  width: 100%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .embla__slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .embla__slide {
+    flex: 0 0 33.33%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla__slide {
+    flex: 0 0 25%;
   }
 }
