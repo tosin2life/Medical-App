@@ -1,7 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import Availability from "./Availability";
+import { Doctor } from "@/types/type";
 
-export default function DoctorDetails() {
+interface DoctorDetailsProps {
+  doctor: Doctor;
+}
+
+export default function DoctorDetails({ doctor }: DoctorDetailsProps) {
   const [isActive, setIsActive] = useState("availability");
   return (
     <div className="">
@@ -31,7 +37,11 @@ export default function DoctorDetails() {
       {isActive === "details" ? (
         <div>Service Details Component</div>
       ) : (
-        <div>Availability Details Component</div>
+        <div>
+          {isActive === "availability" && (
+            <Availability timeSlots={doctor.timeSlots} />
+          )}
+        </div>
       )}
     </div>
   );

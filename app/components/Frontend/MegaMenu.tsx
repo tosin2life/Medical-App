@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/app/components/ui/navigation-menu";
+import { usePathname } from "next/navigation";
 
 const megaMenu = [
   {
@@ -107,6 +108,8 @@ const megaMenu = [
   },
 ];
 export default function MegaMenu() {
+  const pathname = usePathname();
+  if (pathname === "/login") return null; // Hide mega menu on login page
   return (
     <NavigationMenu className="bg-white">
       <NavigationMenuList className=" space-x-20">
