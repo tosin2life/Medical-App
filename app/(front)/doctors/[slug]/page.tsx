@@ -5,13 +5,17 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import React from "react";
 
-export default function DoctorPage({ params }: { params: { slug: string } }) {
-  const doctor = doctorsData.find((doc) => doc.slug === params.slug);
+type Params = Promise<{ slug: string }>;
 
+export default async function DoctorPage({ params }: { params: Params }) {
+  // Await the params Promise
+  const { slug } = await params;
+  // Find the doctor by slug
+  const doctor = doctorsData.find((doc) => doc.slug === slug);
+  // If doctor not found, return a 404 page
   if (!doctor) {
-    notFound();
+    return notFound();
   }
-
   return (
     <div className="bg-slate-50 py-24 min-h-screen">
       <div className="bg-white shadow-md rounded-md max-w-4xl mx-auto">

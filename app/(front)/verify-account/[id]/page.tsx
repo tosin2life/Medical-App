@@ -1,12 +1,13 @@
 import { getUserById } from "@/actions/user";
 import VerifyTokenForm from "@/app/components/Frontend/VerifyTokenForm";
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-export default async function VerifyAccount({ params }: PageProps) {
+type Params = Promise<{ id: string }>;
+
+export default async function VerifyAccountPage({
+  params,
+}: {
+  params: Params;
+}) {
   const { id } = await params;
   //Get a User
   const user = await getUserById(id);
