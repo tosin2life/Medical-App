@@ -111,7 +111,9 @@ export default function VerifyTokenForm({
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={loading}>
+          {loading ? "Loading..." : "Submit"}
+        </Button>
       </form>
     </Form>
   );
