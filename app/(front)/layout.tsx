@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Navbar from "../components/Frontend/Navbar";
+import Footer from "../components/Frontend/Footer";
 // import MegaMenu from "../components/Frontend/MegaMenu";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -12,6 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
       </div> */}
       <div className="mt-[60px]">{children}</div>
+      <Footer />
     </div>
   );
 }
